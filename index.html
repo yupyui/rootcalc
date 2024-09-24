@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Программа извлечения корня</title>
+    <link rel="stylesheet" href="style.css">
+
+   
+    <script>
+        function extraction() {
+
+            var x = parseFloat(document.getElementById("x").value);
+
+            if (isNaN(x)) {
+
+                langSelector = document.getElementById("langSelector");
+                langValue = langSelector.options[langSelector.selectedIndex].value;
+
+                if (langValue == "ru") {
+                    document.getElementById("result").innerHTML = "Это не число! Пожалуйста, введите число!";
+                }
+                else if (langValue == "en") {
+                    document.getElementById("result").innerHTML = "This is not a number! Please enter a number!";
+                }
+                else if (langValue == "kzh") {
+                    document.getElementById("result").innerHTML = "Бұл сан емес! Нөмірді енгізіңіз!";
+                }
+                else if (langValue == "esp") {
+                    document.getElementById("result").innerHTML = "¡Esto no es un número! ¡Por favor introduzca un número!";
+                }
+            }
+            if (x > 0) {
+                var c = Math.pow(x, 0.5).toFixed(5);
+                document.getElementById("result").innerHTML = "√" + x + " = " + "±" + c;
+            }
+            if (x == 0) {
+                var c = 0;
+                document.getElementById("result").innerHTML = "√" + x + " = " + c;
+            }
+            if (x < 0) {
+                var x = x * (-1);
+                var c = Math.pow(x, 0.5).toFixed(5);
+                var c = c + "i";
+                document.getElementById("result").innerHTML = "√" + "-" + x + " = " + "±" + c;
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <select name="langSelector" id="langSelector">
+        <option value="ru">Русский</option>
+        <option value="en">English</option>
+        <option value="esp">Español</option>
+        <option value="kzh">қазақстандық</option>
+    </select>
+    <p0 class="content">
+        <h1 id="h1">
+            Привет, это сайт для извлечения квадратного корня из числа!
+        </h1>
+
+        <p id="pargr">
+            Введи число в строку
+        </p>
+        <form>
+            <input id="x" type="text"><br>
+
+            <button type="button" id="bb" onclick="extraction();"> Извлечь корень </button><br>
+        </form>
+        <div>
+            <p2 id="result">Ответ:</p2>
+        </div>
+        <div>
+            <p3><a href="mailto:lilia586isaeva@yandex.ru" id="mail" >Почта для вопросов/предложений</a></p3>
+        </div>
+        
+        
+    </p0>
+    <script src="lang.js"></script>
+</body>
+</html>
